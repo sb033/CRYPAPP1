@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crypapp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body class="index">
+    <marquee behavior="" direction="">*** THIS WEBAPP IS ONY FOR EDUCATIONAL PURPOSE. INVESTMENT SHOULD BE MADE AT OWN RISK. CRYPAPP WILL NOT BE RESPONSIBLE FOR ANY LOSSES. ***</marquee>
+    <div class="container">
+        <div class="fixed-header">
+            <div class="hrow">
+                <div class="hcol">
+                    <div class="head_logo">
+                        <h1><img src="{{ url_for('static', filename='images/logo.gif') }}" alt="CRYPAPP" class="capp" /></h1>
+                    </div>
+                </div>
+                <div class="h_col">
+                    <div class="head_nav">
+                        <nav>
+                            <a href="#" class="page">Home</a>
+                            <a href="#">About</a>
+                            <a href="#">Learn</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="column">
+                <form action="/forecast" method="post">
+                    <div class="inp_form">
+                        <div>
+                            <div>
+                                <label for="symbol">Cryptocurrency symbol:</label>
+                            </div>
+                            <div>
+                                <select type="text" name="symbol" id="symbol" class="symbol" required>
+                                    <option value="BTC">Bitcoin</option>
+                                    <option value="ETH">Ethereum</option>
+                                    <option value="BNB">BNB</option>
+                                    <option value="SOL">Solana</option>
+                                    <option value="MATIC">Polygon Matic</option>
+                                </select>
+                                <select type="text" name="conv_c" id="conv_c" class="conv_c" required>
+                                    <option value="USD">USD($)</option>
+                                    <option value="INR">INR(₹)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="attr">Attribute:</label>
+                            </div>
+                            <div>
+                                <select type="text" name="attr" id="attr" class="attr" required>
+                                    <option value="Close">Close</option>
+                                    <option value="Open">Open</option>
+                                    <option value="High">High</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <label for="days">Number of days to predict:</label>
+                            </div>
+                            <div>
+                                <input type="range" name="days" class="slider" id="days" min="1" max="15" step="1" value="1" oninput="num.value=value" required>
+                                <input type="number" name="num" id="num" min="1" max="15" step="1" value="1" oninput="days.value=value" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div>
+                            <button class="forecast" type="submit">FORECAST</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="column">
+                <br>
+                <div class="info">
+                    <button class="myBtn_multi">What is Cryptocurrency? >>></button>
+                </div>
+                <br>
+                <div class="info">
+                    <button class="myBtn_multi">Why to Invest in Cryptocurrency? >>></button>
+                </div>
+                <br>
+                <div class="info">
+                    <button class="myBtn_multi">How to Invest in Cryptocurrency? >>></button>
+                </div>
+
+                <!-- The Modal 1 -->
+                <div class="modal modal_multi">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close close_multi">×</span>
+                            <p class="ques">What is Cryptocurrency?</p>
+                        </div>
+                        <div class="modal-body">
+                            <center><iframe width="560" height="315" src="https://www.youtube.com/embed/6Gu2QMTAkEU" title="YouTube video player" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe></center>
+                            <p>Cryptocurrency is a digital or virtual currency that uses cryptography for security and operates independently of a central bank. It is a decentralized form of currency that uses a peer-to-peer network to facilitate transactions and manage the issuance of new units. Cryptocurrencies rely on blockchain technology, which is a distributed ledger that records all transactions and ensures their security and transparency. </p>
+                            <p>The most well-known and popular cryptocurrency is Bitcoin, but there are many other cryptocurrencies such as Ethereum, Litecoin, and Ripple, each with its unique features and functions. Cryptocurrencies are typically bought and sold on cryptocurrency exchanges, and their value fluctuates based on supply and demand in the market.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Modal 2 -->
+                <div  class="modal modal_multi">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close close_multi">×</span>
+                            <p class="ques">Why to Invest in Cryptocurrency?</p>
+                        </div>
+                        <div class="modal-body">
+                            <p>There are several reasons why people choose to invest in cryptocurrency:</p>
+                            <p><u>Potential for high returns:</u> Cryptocurrencies are known for their high volatility, which means their value can rise rapidly in a short period of time. This has led to many people making significant profits from investing in cryptocurrencies. </p>
+                            <p><u>Diversification:</u> Cryptocurrencies offer an alternative investment option that is not correlated with traditional investments such as stocks and bonds. This can help to diversify an investment portfolio and reduce overall risk. </p>        
+                            <p><u>Decentralization:</u> Cryptocurrencies are decentralized and not controlled by any central authority or government. This can appeal to those who are concerned about the potential for government interference in traditional financial systems.</p> 
+                            <p><u>Security:</u> Cryptocurrencies use advanced encryption techniques to ensure the security of transactions and protect against fraud. </p> 
+                            <p>However, it is important to note that investing in cryptocurrencies is also associated with significant risks, such as market volatility, regulatory uncertainty, and potential for hacking or fraud. It is important to do thorough research and understand the risks before investing in any cryptocurrency.</p> 
+                        </div>
+                    </div>
+                </div>
+                <!-- The Modal 3 -->
+                <div  class="modal modal_multi">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="close close_multi">×</span>
+                            <p class="ques">How to Invest in Cryptocurrency?</p>
+                        </div>
+                        <div class="modal-body">
+                            <p>Here are the basic steps to invest in cryptocurrency:
+                            <p><u>Choose a cryptocurrency exchange:</u> There are many cryptocurrency exchanges available, each with its unique features and functions. It's important to choose a reputable exchange with a good track record of security and customer support.</p>                             
+                            <p><u>Create an account:</u> Once you've chosen an exchange, you'll need to create an account by providing your personal information and verifying your identity.</p>                            
+                            <p><u>Fund your account:</u> You can fund your account using a bank transfer, credit/debit card, or other payment methods offered by the exchange.</p>                             
+                            <p><u>Choose your cryptocurrency:</u> After funding your account, you can choose which cryptocurrency you want to buy. Bitcoin is the most well-known and popular cryptocurrency, but there are many others available.</p>
+                            <p><u>Buy your cryptocurrency:</u> Once you've selected your cryptocurrency, you can place an order to buy it using the funds in your account. The cryptocurrency will be added to your account once the transaction is confirmed on the blockchain.</p> 
+                            <p><u>Store your cryptocurrency:</u> It's important to store your cryptocurrency securely in a digital wallet, which is a software program that stores your private keys and allows you to access your cryptocurrency. Some exchanges offer built-in wallets, but it's recommended to use a separate wallet for added security.</p>
+                            <p><u>Monitor your investment:</u> The value of cryptocurrencies can be highly volatile, so it's important to monitor your investment regularly and be prepared for market fluctuations.</p> 
+                            <p>Remember, investing in cryptocurrencies can be risky and it's important to do your own research and understand the risks before investing any money.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="fixed-footer">
+            <div class="foot_row">
+                <div class="foot_col">
+                    <div class="head_logo">
+                        <center><h1><img src="{{ url_for('static', filename='images/logo.gif') }}" alt="CRYPAPP" class="f_capp" /></h1></center>
+                    </div>
+                </div>
+                <div class="f_col">
+                    <div class="foot_nav">
+                        <a href="#" class="foot_link" style="color: #fff;"><h2>Home</h2></a>
+                        <br>
+                        <a href="#" class="foot_link" style="color: #fff;"><h2>About</h2></a>
+                        <br>
+                        <a href="#" class="foot_link" style="color: #fff;"><h2>Learn</h2></a>
+                    </div>
+                </div>
+                <div class="f_col">
+                    <div class="foot_nav">
+                        <a href="#" class="foot_link" style="color: #fff;"><h2>Terms and Conditions</h2></a>
+                        <br>
+                        <a href="#" class="foot_link" style="color: #fff;"><h2>Contact Us</h2></a>
+                        <br><br>
+                        <h2 class="copyright">Copyright &copy; 2016 Your Company</h2>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <script>
+         var modalparent = document.getElementsByClassName("modal_multi");
+
+        // Get the button that opens the modal
+
+        var modal_btn_multi = document.getElementsByClassName("myBtn_multi");
+
+        // Get the <span> element that closes the modal
+        var span_close_multi = document.getElementsByClassName("close_multi");
+
+        // When the user clicks the button, open the modal
+        function setDataIndex() {
+
+            for (i = 0; i < modal_btn_multi.length; i++)
+            {
+                modal_btn_multi[i].setAttribute('data-index', i);
+                modalparent[i].setAttribute('data-index', i);
+                span_close_multi[i].setAttribute('data-index', i);
+            }
+        }
+
+
+
+        for (i = 0; i < modal_btn_multi.length; i++)
+        {
+            modal_btn_multi[i].onclick = function() {
+                var ElementIndex = this.getAttribute('data-index');
+                modalparent[ElementIndex].style.display = "block";
+            };
+
+            // When the user clicks on <span> (x), close the modal
+            span_close_multi[i].onclick = function() {
+                var ElementIndex = this.getAttribute('data-index');
+                modalparent[ElementIndex].style.display = "none";
+            };
+
+        }
+
+        window.onload = function() {
+
+            setDataIndex();
+        };
+
+        window.onclick = function(event) {
+            if (event.target === modalparent[event.target.getAttribute('data-index')]) {
+                modalparent[event.target.getAttribute('data-index')].style.display = "none";
+            }
+
+            // OLD CODE
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forecast for {{ full }}</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+</head>
+<body class="forecast_page">
+    <div class="forecast_head">
+        <h1>Forecast for {{ full }}</h1>
+    </div>
+    <div class="vrow">
+        <div class="vcolm">
+            <div>
+                <center><p class="text">Current Values</p></center>
+            </div>
+            <br>
+            <h3>Open Price 
+                <br>
+                <p class="value">{{cur_sym}} {{open_p}}</p>
+            </h3>
+            <br>
+            <h3>Close Price 
+                <br>
+                <p class="value">{{cur_sym}} {{close_p}}</p>
+            </h3>
+            <br>
+            <h3>Volume 
+                <br>
+                <p class="value">{{vol}}</p>
+            </h3>
+        </div>
+        <div class="gcolm">
+            <div>
+                <p class="text">Predicting prices for the next {{ days }} days</p>
+            </div>
+            <center><div id="graph" class="graph"></div></center>
+            <center><h5>Legend: ds - DATE | y - VALUE/PRICE</h5></center>
+        </div>
+        <div class="vcolm">
+            <div>
+                <p class="text">Predicted Prices of Day {{days}}</p>
+            </div>
+            <br>
+            <h3>{{attribute}} Price 
+                <br>
+                <p class="value">{{cur_sym}} {{pred_p}}</p>
+            </h3>
+            <br>
+            <h3>Upper Limit 
+                <br>
+                <p class="value">{{cur_sym}} {{pr_high}}</p>
+            </h3>
+            <br>
+            <h3>Lower Limit 
+                <br>
+                <p class="value">{{cur_sym}} {{pr_low}}</p>
+            </h3>
+        </div>
+    </div>
+    <br>
+
+    <div class="vrow">
+        <div class="gcolm">
+            <div>
+                <p class="text">Component graphs of predictions</p>
+            </div>
+            <br>
+            <center><div id="comgraph" class="comgraph"></div></center>
+        </div>
+        <div class="dcolm">
+            <div>
+                <p class="text">Predicted Values of {{days}} Days</p>
+            </div>
+            <div class="tab">
+                <center>
+                <table>
+                    <h1>
+                        <!--Displaying the converted table-->
+                        {% for tab in tabs %}
+                        <h2>{{titles[loop.index]}}</h2>                            
+                        {{ tab|safe }}
+                        {% endfor %}     
+                    </h1>
+                </table>
+                </center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <form action="/">
+        <center><button type="submit" class="homebtn">Predict for other Cryptocurrency >>></button></center>
+    </form>
+    <script>
+        var graphJSON = {{ graphJSON|safe }};
+        Plotly.plot('graph', graphJSON.data, graphJSON.layout);
+
+        var comJSON = {{ comJSON|safe }};
+        Plotly.plot('comgraph', comJSON.data, comJSON.layout);
+    </script>
+</body>
+</html
